@@ -46,7 +46,10 @@ app.post("/users", (req, res) => {
     const usernameExists = users.find(user => user.username === dataUser.username);
 
     if (usernameExists) {
-        res.end(JSON.stringify("Username not available, chose another one"));
+        res.end(JSON.stringify({
+            "status": 422,
+            "message": "Username not available, chose another one"
+        }));
     }else {
         const user = {
             id: randomUUID(),

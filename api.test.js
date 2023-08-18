@@ -122,7 +122,13 @@ test('Shouldnt create an user with already exists username', async () => {
     const response = await axios.post('http://localhost:3000/users', input);
     const output = response.data;
 
-    expect(output).toEqual("Username not available, chose another one");
+    const args = {
+        "status": 422,
+        "message": "Username not available, chose another one"
+    }
+
+    expect(output.status).toEqual(args.status);
+    expect(output.message).toEqual(args.message);
 });
 
 test('Shouldnt return an user with an invalid id', async () => {
