@@ -99,7 +99,7 @@ test('should return an user updated', async () => {
 });
 
 test('should delete an user by id', async () => {
-    const response = await axios.delete('http://localhost:3000/users/d9a996ea-6886-4027-8ec9-bf0ff3112746');
+    const response = await axios.delete('http://localhost:3000/users/d9a996ea-6886-4027-8ec9-bf0ff31112345');
     const output = response.data;
 
     const args = {
